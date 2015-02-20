@@ -1,36 +1,45 @@
-# Dashing Map Widget
+Dashing Traffic Map Widget
+==========================
 
-Live demo: [http://dashing-map.herokuapp.com/](http://dashing-map.herokuapp.com/)
+Originally Created by: [@andmcgregor](http://www.twitter.com/andmcgregor)
 
-Created by: [@andmcgregor](http://www.twitter.com/andmcgregor)
+Adapted by: Wolf Noble [@loiosh](http://www.twitter.com/loiosh)
 
-## About
+About
+-----
 
-Uses the Google Maps API to display latitude and longitude coordinates.
+Uses the Google Maps API to display the traffic surrounding a set of latitude and longitude coordinates.
 
-## Screenshot
+Screenshot
+----------
 
-![Dashing map](https://s3-us-west-2.amazonaws.com/vineline/dashing_map.png)
+![Dashing traffic map](https://www.evernote.com/shard/s255/sh/f9ac11dc-4a86-474e-884b-dc7cbabe7e63/72e6b04e8d98f67564c4a5c1d3336960/res/430cebcb-c41a-454d-b8e5-d72da88c8f13/skitch.png)
 
-## Installation
+Installation
+------------
 
-Type `dashing install 6386263` while in your project directory.
+-	Place the `trafficmap` directory into your dashing dashboard's `widgets` directory
+-	Add the following line of code to your layout.erb file:
 
-Add the following line of code to your layout.erb file:
+```
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+```
 
-    <script src="http://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_KEY'] %>&sensor=false&libraries=visualization"></script>
+-	Restart Dashing
 
-And finally set the environment variable `GOOGLE_MAPS_KEY` with your Google Maps API key.
+Using the widget
+----------------
 
-## Using the widget
+Include a widget with a `data-view` of `Trafficmap`. Set the `data-lat` and `data-long` attributes. You may also specify zoom by setting the `data-zoom` attribute.
 
-Include a widget with a `data-view` of `Map`. You can also use `data-color` to color the map and set `data-type` to `heat` to display a heatmap rather than pins. 
+```
+<li data-row="1" data-col="1" data-sizex="2" data-sizey="3">
+  <div data-id="trafficmap" data-view="Trafficmap" data-title="Austin Traffic" data-lat="30.329548" data-long="-97.756257" data-zoom="14" ></div>
+</li>
+```
 
-    <li data-row="1" data-col="1" data-sizex="3" data-sizey="2">
-      <div data-id="map" data-view="Map" data-title="Map" data-type="heat" data-color="#222222"></div>
-    </li>
-
-## License
+License
+-------
 
 This widget is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/) license.
 
